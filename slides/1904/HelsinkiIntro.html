@@ -24,8 +24,74 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Hello world</section>
-				<section>Digital Resistance!</section>
+				<section>
+					<section>
+						<h1>Digital Humanities Crash-Course</h1>
+						<h3>April 19 — 26 </h3>
+					</section>
+					<section>
+						<h1>Course slides & materials</h1>
+						<h2><a href="https://danilsko.github.io/DHelsinki/">danilsko.github.io/DHelsinki</a></h2>
+						<p class="fragment fade-up"><i>Самая Главная Ссылка</i></p>
+					</section>
+					<section>
+						<h3>Plan for today</h3>
+						<ol>
+							<li>About me<ul><li>(and about you!)</li></ul></li>
+							<li>About Digital Humanities, and whether you should care</li>
+							<li>Some history of humanities computing</li>
+							<li>Contemporary DH</li>
+							<li>What will <span class="fragment highlight-green">we</span> learn</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>About me</h3>
+						<ul>
+							<li>Full name: Daniil Skorinkin</li>
+							<li>Just call me Danya (DAAnyuh, IPA:'dɑːnjə) or Dan</li>
+							<li>Work at HSE: <a href="https://www.hse.ru/staff/skorinkin">hse.ru/staff/skorinkin</a></li>
+							<li>Computational linguist/NLP specialist by origin</li>
+							<li>'Digital Humanist' by current trade</li>
+							<li><p class="fragment fade-up">...Your turn, please, I am all 👂</p></li>
+						</ul>
+					</section>
+					<section>
+					<h3>About Digital Humanities</h3>
+					or …
+
+<li>{fi} Digitaaliset ihmistieteet</li>
+<li>{ru} Цифровые гуманитарные науки</li>
+<li>{fr} Humanités numériques</li>
+<li>{es} Humanidades digitales</li>
+<li>{he} מדעי הרוח הדיגיטליים</li>
+<li>{it} Informatica umanistica</li>
+<li>{de} Digitale Geisteswissenschaften</li>
+
+
+					</section>
+					<section>
+						<h3>What is Digital Humanities?</h3>
+						<p>..is almost a topic of research in itself</p>
+						<p><a href="http://whatisdigitalhumanities.com">whatisdigitalhumanities.com</a> will give you 817 definitions</p>
+					</section>
+					<section>
+					<h3>My favourite definition</h3>
+					<p>Taking tools built by warmongers, spy agencies & investment bankers and using them to study literature, philosophy, culture and the classics <p>(Elijah Meeks, Stanford Digital Scholarship)</p> </p>
+					</section>
+					<section>
+					<h3>Or to be more precise</h3>
+					<p>Applying computational methods and sophisticated IT to research in the humanities</p>
+					</section>
+					<section>
+					<img data-src="Pictures/DHmap.png">
+					</section>
+					
+					<section>
+					<p class="fragment grow">Digital Resistance!</p>
+					</section>
+				</section>
 			</div>
 		</div>
 
@@ -37,6 +103,10 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+			controls: true,
+				progress: true,
+				history: true,
+				center: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -44,6 +114,7 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+			
 		</script>
 	</body>
 </html>
