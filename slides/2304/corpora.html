@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../reveal/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+		<style>
+.highlight { 
+    color: orange;
+}
+</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Digital Humanities Crash-Course</h1>
+						<h3>April 19 — 26 </h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Course slides & materials</h1>
+						<p><a href="https://danilsko.github.io/DHelsinki/">danilsko.github.io/DHelsinki</a></p>
+						<!-- <p class="fragment fade-up"><i>Самая Главная Ссылка</i></p> -->
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Warning</h1>
+						<p>This presentation is Non-Linear</p>
+						<p>Use <span color="blue">SPACE</span> to go forward, SHIFT+SPACE to go back</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Plan for today</h3>
+						<ol>
+							<li>Corpora Intro/reminder (very short, as you're probably all aware)</li>
+							<li>Corpora and the Humanities</li>
+							<li>'Culturomics' with Google Books</li>
+							<li>Existing Linguistic Corpora...<ul>
+							<li>and their use for non-linguistic research</li></ul>
+							<li>Turning your data into a corpus and querying it</li>
+							<!--
+							<li>What <span class="fragment highlight-green">we</span> will learn in this course</li>
+							<li>Some Russian Sweets (to sweeten the bitter roots of knowledge) 🍰 🍬 </li>-->
+						</ol>
+					</section>
+					<section>
+						<h3>but first</h3>
+						<p>Let us get done with "The little humpbacked horse"!</p>
+						<img data-src="Pictures/konek.jpg" height="500">
+					</section>
+					<section>
+						<h3>Pushkin and Ershov</h3>
+						<img data-src="Pictures/pushkinershov.png" height="620">
+					</section>
+					<section>
+						<h3>Pushkin, Ershov and Lermontov</h3>
+						<img data-src="Pictures/konekErshovPushkinLermontov_Consensus_50-100_MFWs_Culled_0__Classic Delta_C_0.5__001.png" height="620">
+					</section>
+					<section>
+						<h3>Pushkin, Ershov, and many others</h3>
+						<img data-src="Pictures/konek_Many_Consensus_50-100_MFWs_Culled_0__Classic Delta_C_0.5__001.png" height="620">
+					</section>
+					
+				</section>
+				<section>
+					<section>
+						<h1>And now  corpora</h1>
+					</section>
+					<section>
+						<h3>Corpus</h3>
+						<ul>
+						<li>Is, essentially, a collection of texts</li>
+						<li class="fragment">Put together for some reason</li>
+						<li class="fragment">(often) with some markup and/or metadata</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Linguistic Markup Example (RNC)</h3>
+						<img data-src="Pictures/rncacomp.png" height="620">
+					</section>
+					<section>
+						<h3>Linguistic Markup Example (BNC)</h3>
+						<img data-src="Pictures/bncacomp1.png">
+						<img data-src="Pictures/bncacomp2.png">
+					</section>
+					<section>
+						<h3>Linguistic Markup Example (Google Books)</h3>
+						<img data-src="Pictures/tacklegoogle.png" height="620">
+					</section>
+					<section>
+						<h3>Metadata Example (RNC)</h3>
+						<img data-src="Pictures/rncmeta.png" height="550">
+					</section>
+					<!--
+					<section>
+						<h3>Metadata Example (BNC)</h3>
+						<img data-src="Pictures/bncmeta.png" >
+					</section>
+					-->
+					<section>
+					<h3>What are these corpora by the way?</h3>
+						<ul>
+						<li>RNC = Russian National Corpus (НКРЯ) at <a href="http://ruscorpora.ru/">ruscorpora.ru</a></li>
+						<li>BNC = British National Corpus, query interface (one of) at <a href="https://corpus.byu.edu/bnc/">BYU-BNC</a></li>
+						<li>Google <a href="https://books.google.com">Books</a> and its <a href="https://books.google.com/ngrams">Google Ngram Viewer</a> interface</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>What sort of answers can corpora give?</h1>
+					</section>
+					<section>
+						<h3>When did they start saying that?</h3>
+						<p>Клевый (cool)</p>
+						<p class="fragment">Like Клевый ресторан (cool restaurant)</p>
+						<p class="fragment">Догадки?</p>
+					</section>
+					<section>
+						<h3>Клевый (cool)</h3>
+						<q>Голова, брат, ты, как я погляжу!.. <span class="highlight">Клевую</span> штуку придумал! Свадьба, стало быть, пойдет только на подмазку, а главное ― ширманам чистка.</q>
+						<p>[В. В. Крестовский. Петербургские трущобы. Книга о сытых и голодных. Ч. 5 (1867)]</p>
+					</section>
+					<section>
+						<h3>When did they start saying this instead of that?</h3>
+						<img data-src="Pictures/seietot.png" height ="450">
+					</section>
+					<section>
+					<h3>Which of the two competing forms prevails (and when)?</h3>
+						<img data-src="Pictures/irreg.png" height ="450">
+					</section>
+					<section>
+						<h3>When did the meaning change?</h3>
+						<p>Противный (disgusting, unpleasant)</p>
+					</section>
+					<section>
+						<h3>When did the meaning change?</h3>
+						<p>Противный (disgusting, unpleasant)</p>
+					</section>
+					<section>
+						<h3>Or when the meaning changed?</h3>
+						<q>Потом позвал обоих государей генерал-лейтенант Флеминг к себе на вечер, где междо разговорами король Август государю говорил, что много поляков <span class="highlight">противных</span> имеет, и примолвил, что ежели над ним что учинят, то б не оставлен был.</q>
+						<p>[А. М. Макаров (ред.). Гистория Свейской войны (Поденная записка Петра Великого) (1698-1721)]</p>
+					</section>
+					<section>
+						<h3>Sometimes the emergence of a new meaning is visible quantitatively</h3>
+						<img data-src="Pictures/raspil.png" height ="520">
+					</section>
+				</section>
+				<section>
+					<section> <!-- data-background="Pictures/startrek.jpg" background-size="500"-->
+						<h3>Culturomics in corpora</h3>
+						<img data-src="Pictures/startrek.jpg">
+					</section>
+					<section>
+					<h3>BTW how many books do you think there are?</h3>
+						<ul><li class="fragment">Nobody really knows</li>
+						<li class="fragment">But in 2010 Google assessed it to be 130 mln. </li>
+						<li class="fragment">And digitized about 15 mln. </li>
+						<li class="fragment">Of which about 5 mln. were of normal quality and put online </li>
+						</ul>
+					</section>
+					<section data-background="Pictures/sciencecover.png">
+						<h3>Google Books</h3>
+						<ul>
+						<li>'Michel, Jean-Baptiste; Liberman Aiden, Erez (2011). Quantitative Analysis of Culture Using Millions of Digitized Books. Science. 331 (6014): 176–82'</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Google Books</h3>
+						<ul>
+						<li>'The resulting corpus contains over 500 billion words, in English (361 billion), French (45B), Spanish (45B), German (37B), Chinese (13B), Russian (35B), and Hebrew (2B). The oldest works were published in the 1500s.</li> 
+<li>The early decades are represented by only a few books per year, comprising several hundred thousand words. </li>
+<li>By 1800, the corpus grows to 60 million words per year; </li>
+<li>by 1900, 1.4 billion; </li>
+<li>and by 2000, 8 billion. </li>
+						</ul>
+					</section>
+					<section>
+						<h3>Google Books</h3>
+						<ul>
+<li>The corpus cannot be read by a human. If you tried to read only the entries from the year 2000 alone, at the reasonable pace of 200 words/minute, without interruptions for food or sleep, it would take eighty years. </li>
+<li>The sequence of letters is one thousand times longer than the human genome: if you wrote it out in a straight line, it would reach to the moon and back 10 times over. 
+</li>
+						</ul>
+					</section>
+					 <section>
+						<h3>Google Books</h3>
+						<ul>
+						<li>'We constructed a corpus of digitized texts containing about 4% of all books ever printed. Analysis of this corpus enables us to investigate cultural trends quantitatively.</li>
+ <li>We survey the vast terrain of “culturomics”, focusing on linguistic and cultural phenomena <...>'</li>
+						</ul>
+					</section>
+					 <section>
+						<h3>Google Books</h3>
+						<ul>
+						<li>We show how this approach can provide insights about fields as diverse as lexicography, the evolution of grammar, collective memory, the adoption of technology, the pursuit of fame, censorship, and historical epidemiology.</li>
+ <li>“Culturomics” extends the boundaries of rigorous quantitative inquiry to a wide array of new phenomena spanning the social sciences and the humanities.</li>
+						</ul>
+					</section> 
+
+					<section>
+						<h3>Culturomics in Google Books</h3>
+						<img data-src="Pictures/flu.png">
+					</section>
+					<section>
+						<h3>Culturomics in Google Books</h3>
+						<img data-src="Pictures/g2.png">
+					</section>
+					<section>
+						<h3>Culturomics in Google Books</h3>
+						<img data-src="Pictures/trotskiy.png">
+					</section>
+					<!-- 
+					<section>
+						<h3>Culturomics in Google Books</h3>
+						<img data-src="Pictures/war.jpg">
+					</section>
+					<section>
+						<h3>Culturomics in Google Books</h3>
+						<img data-src="Pictures/slavery.jpg">
+					</section>
+					-->
+					<section>
+						<h3>Okay, let us go to the <a href="https://books.google.com/ngrams">Ngram Viewer</a> and learn by trying it </h3>
+					</section>
+					<section>
+					<h3>Some sample queries to try for yourself</h3>
+					<ul>
+					<li>burned,burnt</li>
+					<li>science,religion</li>
+					<li>"наука,церковь</li>
+					<li>Ленин,Сталин</li>
+					<li>((Bigfoot + Sasquatch) - (Loch Ness monster + Nessie))</li>
+					<li>(Ленин-Сталин)</li>
+					<li>в Украине/(в Украине+на Украине)</li>
+					<li>hate *</li>
+					<li>hate_VERB *_NOUN</li>
+					<li>начальник *_NOUN</li>
+					</ul>
+					</section>
+					<section>
+					<h3>cross-language comparison</h3>
+					<ul>
+					<li>
+						интернет:rus_2012,internet:eng_2012
+					</li>
+					<li>
+						color:eng_us_2012,colour:eng_us_2012,colour:eng_gb_2012,color:eng_gb_2012
+					</li>
+					<li>
+						(to see OCR improvements):
+					</li>
+					<ul>
+					</section>
+					<section>
+						<h3>Thou shalt not kill</h3>
+					<p>...or Du sollst nicht töten</p>
+					</section>
+					<section>
+					<li>
+						<h3>query syntax & more examples</h3>
+						<p><a href=""></a></p>
+					</li>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>What can linguistic corpora do that Google Ngram can't? </h3>
+					</section>
+					<section>
+						<h3>E.g. hit with something (instrument of hitting) </h3>
+					</section>
+					<section>
+						<h3>Comparing for men and women </h3>
+					</section>
+					<section>
+						<h3>related research</h3>
+						<ul>
+							<li><a href="http://dh2015.org/abstracts/xml/BONCH_OSMOLOVSKAYA_Anastasia_Medium_data_method_f/BONCH_OSMOLOVSKAYA_Anastasia_Medium_data_method_for_cul.html"> Medium data method for cultural studies: the case of gender studies in Russian National Corpus</a>
+							</li>
+							<li><a href="http://dh2016.adho.org/abstracts/413"> Two Centuries of Russian Roads – Diachronic Study of Polysemy in the Context of Cultural Change</a>
+							</li>
+							<li> Культуромика в национальном корпусе русского языка, к постановке задачи: три века русских дорог (Russian version in Труды ИРЯ)</li>
+						</ul> 
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Tools for working with your own corpus</h1>
+					</section>
+					<section>
+						<h3>Tools for working with your own corpus</h3>
+						<ul>
+							<li>
+							<a href="https://voyant-tools.org/">Voyant Tools</a> (web application)
+							</li>
+							<li>
+							<a href="http://www.laurenceanthony.net/software.html">AntConc</a> (desktop corpus manager)
+							</li>
+						</ul>
+					</section>
+					<section>
+					<h3>stemming/lemmatisation for non-programmers</h3>
+					<ul>
+					<li>English: <a href="http://text-processing.com/demo/stem/">text-processing.com/demo/stem</a></li>
+					<li>Russian: <a href="https://bez-bubna.com/free/lemma.php">text-processing.com/demo/stem</a></li>
+					<li>Both limited</li>
+					</ul>
+					</section>
+					<section>
+					<h3>Russian lemmatisation without limitations </h3>
+					<h4>(but you'll have to write a couple of lines of code)</h4>
+					<ul>
+					<li>MyStem <a href="https://tech.yandex.ru/mystem/">tech.yandex.ru/mystem/</a>
+					<ul>
+						<li>a console application (to launch from cmd/terminal)</li>
+						<li>pymystem3 python wrapper (slower!)</li>
+						<li>can resolve morphological homonymy</li>
+					</ul>
+					</li>
+					<li>Pymorphy: <a href=""></a>
+					<ul>
+						<li>free and opensource Python library</li>
+						<li>uses opencorpora.org for morphology</li>
+						<li><span style="color:red">cannot</span> resolve morphological homonymy</li>
+					</ul>
+					</li>
+					<li>Both limited in number of characters</li>
+					</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Couple of words about parallel corpora</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			
+		</script>
+	</body>
+</html>
