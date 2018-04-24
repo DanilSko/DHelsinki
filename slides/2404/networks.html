@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../reveal/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+		<style>
+.highlight { 
+    color: orange;
+}
+</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Digital Humanities Crash-Course</h1>
+						<h3>April 19 — 26 </h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Course slides & materials</h1>
+						<p style="font-size:150%"><a href="https://danilsko.github.io/DHelsinki/">danilsko.github.io/DHelsinki</a></p>
+						<!-- <p class="fragment fade-up"><i>Самая Главная Ссылка</i></p> -->
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Warning</h1>
+						<p>This presentation is Non-Linear</p>
+						<p>Use <span color="blue">SPACE</span> to go forward, SHIFT+SPACE to go back</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Plan for today</h3>
+						<ol>
+							<li>Networks Intro</li>
+							<li>What can we formalise (and study) as a network/graph</li>
+							<li>Human Networks</li>
+							<li>Human<span class="fragment highlight-green">ities</span> Networks</li>
+							<li>Practice with Gephi & Ezlinavis: HOWTO
+								<ul>
+									<li class="fragment">import and work with existing network datasets</li>
+									<li class="fragment">build your own networks</li>
+								</ul>
+							</li>
+						</ol>
+					</section> 
+					<section>
+					<h3>Same plan in informal Russian :)</h3>
+						<ul>
+						<li>Что за сети? Что за анализ?</li>
+						<li>сети (графы) в реальном мире</li>
+						<li>Те самые «шесть рукопожатий»: сети из людей</li>
+						<li>С кем дружил Фрэнсис Бэкон и кому платили короли: сети в гуманитарных науках</li>
+						<li>Пушкин на посылках и «коммунистическая» пьеса: что можно увидеть в вымышленных сетях? </li>
+						<li>Практика в Gephi и Ezlinavis  </li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>networks 101</h1>
+					</section>
+					<section>
+						<h3>A network (a graph)</h3>
+						<img data-src="Pictures/network.png">
+					</section>
+					<section>
+						<h4>What can be represented as a network?</h4>
+						<img data-src="Pictures/network.png">
+					</section>
+					<section>
+						<h3>Practically anything</h3>
+						<img data-src="Pictures/networks.png">
+					</section>
+					<section>
+						<h3>Bridges</h3>
+						<img data-src="Pictures/konigbridges.png">
+					</section>
+					<section>
+						<h3>Seven Bridges of Königsberg by Euler</h3>
+						<img data-src="Pictures/konigbridges1.png" height = "400">
+					</section>
+					<section>
+						<h3>This is how network theory came about</h3>
+						<img data-src="Pictures/konigbridges2.png">
+					</section>
+					<section>
+						<h3>Transportation networks </h3>
+						<img data-src="Pictures/transport.png">
+					</section>
+					<section>
+						<h3>Directed graph</h3>
+						<img data-src="Pictures/dirnetwork.png">
+					</section>
+					<section>
+						<h3>Another transportation network </h3>
+						<img data-src="Pictures/mosmetro.png">
+					</section>
+					<section>
+						<h3>Weighted graph</h3>
+						<img data-src="Pictures/wieghtnetwork.png">
+					</section>
+					<section>
+						<h3>INTERNET</h3>
+						<img data-src="Pictures/web.png">
+					</section>
+					<section>
+						<h3>Wikipedia</h3>
+						<img data-src="Pictures/wiki.png">
+					</section>
+					<section>
+						<h3>And by the way</h3>
+						<h4>data like this is easily extractible from Wiki using DBpedia or Wikidata (+SPARQL)</h4>
+						<img data-src="Pictures/ext.png">
+						<!--<img data-src="Pictures/db.png">
+						<img data-src="Pictures/sparql.png"> -->
+					</section>
+					<section>
+						<h3>...and of course, social networks!</h3>
+						<img data-src="Pictures/vk.png">
+					</section>
+					<section>
+					<h2>Lut's try <a href="https://www.yasiv.com/vk">live</a></h2>
+					</section>
+					
+					<section>
+					<h2>Lut's try <a href="https://www.yasiv.com/vk">live</a></h2>
+					</section>
+					
+				</section>
+				<section>
+					<section>
+							<h2>But actually, this is real <s>rocket</s> social science!</h2>
+					</section>
+					<section data-background-image="Pictures/sociogram.jpg">
+						<!--<h2>a few words about studying human networks</h2>-->
+					</section>
+					<section>
+							<h3>Social Network Analysis</h3>
+							<p>Origins in 1930-es: Kurt Levin, Jacob Moreno</p>
+							<img data-src="Pictures/moreno.png" height="350">
+							<img data-src="Pictures/moreno2.png" height="350"> <!--aling="centre"--> 
+							<p>
+							<a href="http://www.martingrandjean.ch/social-network-analysis-visualization-morenos-sociograms-revisited/">check it out at Martin Grandjean's website!</a>
+							</p>				
+					</section>
+					<section>
+							<h3>Social Network Analysis</h3>
+						<p>Manchester Anthropology School (Max Gluckman and followers) in the 50-es</p>
+						<img data-src="Pictures/tribalnetwork.png">
+					</section>
+					<section>
+							<h3>Social Network Analysis</h3>
+	
+						<p>'Harvard Breakthrough' in the 60-es (Harrison White and followers)</p>
+						<img data-src="Pictures/harvard.gif">
+
+					</section>
+					<section>
+							<h3>The (Infamous) Six Degrees of Separation</h3>
+							<h5>(Теория шести рукопожатий)</h5>
+
+						<img data-src="Pictures/sixdegrees2.png" height="400">
+
+					</section>
+					<section>
+							<h3>Small World Experiment</h3>
+						<img data-src="Pictures/smallworld.gif">
+					</section>
+					<section>
+							<h3>Small World Experiment</h3>
+						<img data-src="Pictures/sixdegrees.png">
+					</section>
+					<section>
+						<h3>Social Network Analysis</h3>
+						<p>New Wave with new data</p>
+						<img data-src="Pictures/web.png">
+					</section>
+				</section>
+				<section>
+					<section>
+					<h2>Networks: now in the humanities!</h2>
+					</section>
+					<section>
+					<h3>Who knew whom in Britain 500 years from now</h3>
+						<ul>
+						<li>Проект Six Degrees of Francis Bacon (шесть рукопожатий Фрэнсиса Бэкона)</li>
+						<li>Более 13.000 человек, более 200.000 связей</li>
+						<li>Извлечено из Oxford Dictionary of National Biography</li>
+						<li><a href="http://www.sixdegreesoffrancisbacon.com/">sixdegreesoffrancisbacon.com</a></li>
+						</ul>
+					</section>
+					<section>
+							<h3>People of Medieval Scotland</h3>
+						<img data-src="Pictures/scotland.png" height="450">
+						<p><a href="http://www.poms.ac.uk/">poms.ac.uk</a></p>
+					</section>
+					<section>
+							<h3>RusDraCor</h3>
+						<img data-src="Pictures/rusrdacor.png" height="450">
+						<p><a href="https://rus.dracor.org">rus.dracor.org</a></p>
+					</section>
+					<section>
+							<h3>(Shiny RusDraCor)</h3>
+						<img data-src="Pictures/shiny.png" height="450">
+						<p><a href="https://shiny.dracor.org/">shiny.dracor.org</a></p>
+					</section>
+					<section data-background-image="Pictures/why.png" data-background-size="contain">
+					</section>
+					<section>
+							<q style="font-size:130%">It’s pretty (and fashionable)</q>
+							<p>Ondrej Tichy, Charles University</p>
+					</section>
+					<section>
+							<h4>But actually, networks give you a combination of visual and formal (mathematical) analysis</h4>
+						<img data-src="centrality.png" >
+						
+					</section>
+					<section>
+							<h4>Centrality</h4>
+						<img data-src="centrality.png" >
+						<p>Centrality of A = 5</p>
+					</section>
+					<section>
+							<h4>What about this one</h4>
+						<img data-src="betweenness.png" >
+
+					</section>
+					<section>
+							<h4>This is called betweenness centrality</h4>
+						<img data-src="betweenness.png" >
+
+					</section>
+					<section>
+					<h3>So, networks help us</h3>
+					<li>Measure the 'importance' of a separate node (based on centrality measures)</li>
+					<li>Analyse paths in a networks (e.g. information flow)</li>
+					<li>also, communities extraction! </li>
+					</section>
+					<section>
+					<h3>Commmunity detection: Karate Club</h3>
+						<img data-src="karate1.png" >
+					</section>
+					<section>
+					<h3>Commmunity detection: Karate Club</h3>
+					<li>A social network of a karate club studied by Wayne W. Zachary from 1970 to 1972</li>
+					<li>Links capture interactions between the club members outside the club</li>
+					<li>During the study a conflict arose between the administrator "John A" and instructor "Mr. Hi" (pseudonyms), which led to the split of the club into two.</li>
+					</section>
+					<section>
+						<h3>Commmunity detection: Karate Club</h3>
+						<li>Half of the members formed a new club around Mr. Hi</li>
+						<li>members from the other part found a new instructor or gave up karate.</li>
+						<li>Basing on collected data Zachary assigned correctly all but one member of the club to the groups they actually joined after the split</li>
+						<li><a href="http://www1.ind.ku.dk/complexLearning/zachary1977.pdf">Link to the paper (1977)</a></li>
+					</section>
+					<section>
+						<h3>Commmunity detection: Karate Club</h3>
+					<q>The process leading to fission is viewed as an unequal flow of sentiments and information across the ties in a social network. This flow is unequal because it is uniquely constrained by the contextual range and sensitivity of each relationship in the network. The subsequent differential sharing of sentiments leads to the formation of subgroups with more internal stability than the group as a whole, and results in fission</q>
+					</section>
+					<section>
+					<h3>Zachary's matrix</h3>
+						<img data-src="karatematrix.png" >
+					</section>
+					<section>
+					<h3>Zachary's network visualization</h3>
+						<img data-src="karateviz.png" >
+					</section>
+					<section>
+					<h3>Karate Club: my try in Gephi</h3>
+						<img data-src="karate2.png" >
+					</section>
+					<h3>Karate Club Club</h3>
+					</section>
+				</section>
+				<section>
+					</section>
+					<h1>Networks in Fiction</h1>
+					</section>
+					<section>
+					<h3>...not limited to literature</h3>
+						<img data-src="starwars.png" >
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			
+		</script>
+	</body>
+</html>
