@@ -1,0 +1,12 @@
+Source,Type,Target,Weight
+Danya S,Undirected,Dasha G,1
+Danya S,Undirected,Ekaterina P,2
+Danya S,Undirected,Ekaterina V,1
+Danya S,Undirected,Ira O,2
+Dasha G,Undirected,Ekaterina P,1
+Ekaterina P,Undirected,Elva S,1
+Ekaterina P,Undirected,Ilona R,1
+Ekaterina P,Undirected,Ira O,1
+Ekaterina V,Undirected,Elva S,1
+Ekaterina V,Undirected,Ilona R,1
+Ekaterina V,Undirected,Ira O,1

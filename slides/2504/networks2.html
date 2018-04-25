@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../reveal/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+		<style>
+.highlight { 
+    color: orange;
+}
+</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Digital Humanities Crash-Course</h1>
+						<h3>April 19 — 26 </h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Reminder: Course slides & materials</h1>
+						<p style="font-size:150%"><a href="https://danilsko.github.io/DHelsinki/">danilsko.github.io/DHelsinki</a></p>
+						<!-- <p class="fragment fade-up"><i>Самая Главная Ссылка</i></p> -->
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Warning</h1>
+						<p>This presentation is Non-Linear</p>
+						<p>Use <span color="blue">SPACE</span> to go forward, SHIFT+SPACE to go back</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Plan for today</h3>
+						<ol>
+							<li>Continue working with Gephi</li>
+							<li>Making our own networks with Ezlinavis</li>
+							<li>Making dynamic networks in Gephi</li>
+							<li>Trying directed networks in Gephi</li>
+							<li>Stylometric networks: combining Stylo & Gephi!<span class="fragment fade-up">🙀</span></a></li>
+							<li>*Extracting networks from Wikipedia with SPARQL and visualising them in Gephi(demo if we have time)</li>
+						</ol>
+					</section>  
+				</section>
+				<section>
+					<section>
+						<h1>Reminder</h1>
+					</section>
+					<section>
+						<h3>We are working with networks (graphs)</h3>
+						<img data-src="Pictures/groupnetwork3.png" height="500">
+					</section>
+					<section>
+						<h3>Networks can be used to represent different things</h3>
+						<img data-src="Pictures/networks.png">
+					</section>
+					<section>
+						<h3>Including human relations in reality...</h3>
+						<img data-src="Pictures/groupnetwork3.png" height="500">
+					</section>
+					<section>
+						<h3>...and in fiction</h3>
+						<img data-src="Pictures/starwars.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Gephi Reminder</h1>
+					</section>
+					<section>
+						<h3>To analyse and visualise networks we use Gephi</h3>
+						<h4>Download and install at <a href="https://gephi.org/"> gephi.org</a></h4>
+					</section>
+					<section>
+						<h3>Gephi is</h3>
+						<ul>
+							<li>an open source software for exploring and manipulating networks </li>
+							<li>"like Photoshop but for graph data" (gephi.org)</li>
+							<li>written in Java and runs on most OS's</li>
+							<li>extensible (plugins with additional features)</li>
+							<li>...a bit buggy :) </li>
+						</ul>
+					</section>
+					<section>
+						<h3>Alternative: Cytoscape</h3>
+						<h4><a href="http://www.cytoscape.org/">cytoscape.org</a></h4>
+					</section>
+					<section>
+						<h3>Alternative two: Gephi Online</h3>
+						<h4><a href="https://www.rollapp.com/app/gephi">rollapp.com/app/gephi</a></h4>
+					</section>
+					<section>
+						<h3>Alternatives 4 coders:</h3>
+						<ul>
+						<li>NetworkX (Python)</li>
+						<li>iGraph (R/Python)</li>
+						<li>Pajek</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Getting data into Gephi</h3>
+						<ul>
+						<li>Way one: CSV (we tried yesterday)</li>
+						<li> A lot of network data in CSV Form on the web:
+						<ul>
+						<li><a href="http://konect.uni-koblenz.de/networks/">Koblenz Network Repository</a></li>
+						<li><a href="https://github.com/arangodb/example-datasets/blob/master/Graphs/Marvel%20Universe/hero-comic-network.csv">comic hero network</a> (and lots of other networks like this on people's GitHub repositories)</li>
+						<li><a href="https://dracor.org/">dracor.org</a></li>
+						</ul>
+						</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Video instruction on importing data from Koblenz Repo to Gephi</h3>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/VH-Hg1CR4NE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<p><a href="https://youtu.be/VH-Hg1CR4NE">youtu.be/VH-Hg1CR4NE</a></p>
+					</section>
+					<section>
+						<h3>Getting data into Gephi</h3>
+						<ul>
+						<li>Way one: CSV (we tried yesterday)</li>
+						<li> A lot of network data in CSV Form on the web:
+						<ul>
+						<li><a href="http://konect.uni-koblenz.de/networks/">Koblenz Network Repository</a></li>
+						<li><a href="https://github.com/arangodb/example-datasets/blob/master/Graphs/Marvel%20Universe/hero-comic-network.csv">comic hero network</a> (and lots of other networks like this on people's GitHub repositories)</li>
+						<li><a href="https://dracor.org/">dracor.org</a></li>
+						</ul>
+						</li>
+						</ul>
+					</section>
+					<section>
+						<h2>ok, Danya, but where do these CSV files come from?</h2>
+						<h3 class="fragment fade-up">and what does it <span class="highlight">mean</span> if the two characters have an edge with weight 5<class> </h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>formalisation of interactions</h1>
+					</section>
+					<section>
+						<h3>formalisation of interactions</h3>
+						<ul>
+						<li>the most debated question in literary network analysis</li>
+						<li>main approaches
+							<ul>
+								<li>cooccurrence of characters (e.g. in a paragraph or in a 10/15/30-word window)</li>
+								<li>conversation between characters — harder to automate</li>
+								<li>formally defined interaction (may include perception/thought)</li>
+								<li>formally defined relation (kinship/friendship etc.)</li>
+							</ul>
+						</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Our approach to formalisation</h3>
+						<li>network data = interactions between characters</li>
+<li>"Two characters interact with one another if they perform a speech act within the same segment of a drama (usually a 'scene')." (following an idea of Solomon Marcus, "Poetica matematică", 1970)</li>
+<li>keep in mind: the 'epistemic thing' of literary network analysis different from that of text analysis</li>
+					</section>
+					<section>
+						<h3>We rely on TEI markup (that we first create semi-automatically)</h3>
+						<ul>
+							<li>TEI = Text Encoding Initiative</li>
+							<li>XML-based markup language 'for the humanities'</li>
+							<li>Starting in 1987!
+							<ul>
+								<li>Earlier than Internet and HTML!</li>
+								<li class="fragment fade-up">But wait...it's even earlier than XML!</li>
+							</ul>
+							</li>
+							<li>Website & guidelines: <a href="http://www.tei-c.org">tei-c.org</a></li>
+							<li>In Russian: <span style="font-size:75%">Скоринкин Д. А. Электронное представление текста с помощью стандарта разметки TEI // Вестник Московского университета. Серия 9: Филология. 2016. № 5</span></li>
+						</ul>
+					</section>
+					<section>
+					<h3>EXTRACT FROM TEI-ENCODED PLAY</h3> 
+					<pre><code class="lang-xml hljs">(…)
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">front</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">docTitle</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">titlePart</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"main"</span>&gt;</span>Борис Годунов<span class="hljs-tag">&lt;/<span class="hljs-name">titlePart</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">docTitle</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"dedication"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Драгоценной для россиян памяти Николая Михайловича
+     Карамзина сей труд, гением его вдохновенный, с
+     благоговением и благодарностию посвящает<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Александр Пушкин<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">front</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"scene"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>КРЕМЛЕВСКИЕ ПАЛАТЫ<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">stage</span>&gt;</span>(1598 года, 20 февраля)<span class="hljs-tag">&lt;/<span class="hljs-name">stage</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">stage</span>&gt;</span>Князья Шуйский и Воротынский. <span class="hljs-tag">&lt;/<span class="hljs-name">stage</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">sp</span> <span class="hljs-attr">who</span>=<span class="hljs-string">"#vorotynskij"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">speaker</span>&gt;</span>Воротынский<span class="hljs-tag">&lt;/<span class="hljs-name">speaker</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Наряжены мы вместе город ведать,<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Но, кажется, нам не за кем смотреть:<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Москва пуста; вослед за патриархом<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>К монастырю пошел и весь народ.<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Как думаешь, чем кончится тревога?<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">sp</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">sp</span> <span class="hljs-attr">who</span>=<span class="hljs-string">"#shujskij"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">speaker</span>&gt;</span>Шуйский<span class="hljs-tag">&lt;/<span class="hljs-name">speaker</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Чем кончится? Узнать немудрено:<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Народ еще повоет да поплачет,<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Борис еще поморщится немного,<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Что пьяница пред чаркою вина,<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>И наконец по милости своей<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>Принять венец смиренно согласится,<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span>&gt;</span>А там — а там он будет нами править<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">l</span> <span class="hljs-attr">part</span>=<span class="hljs-string">"I"</span>&gt;</span>По-прежнему.<span class="hljs-tag">&lt;/<span class="hljs-name">l</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">sp</span>&gt;</span>
+(…)
+</code></pre>
+					</section>
+					<section>
+						<h3>For those interested in technical details</h3>
+						<h3 class="fragment fade-up">go to <a href="https://github.com/dracor-org">github.com/dracor-org</a></h3>
+					</section>
+					<section>
+						<h2>But what about novels?</h2>
+						<h3 class="fragment fade-up">We'll come to it a bit later</h3>
+						<h3 class="fragment fade-up">first...</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Making Our Own Networks</h1>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Meet EzLinaVis</h2>
+						<h3"><a href="https://ezlinavis.dracor.org/">ezlinavis.dracor.org</a></h3>
+						<h4 class="fragment fade-up">live demo now</h4>
+					</section>
+					<section data-markdown="" data-markdown-parsed="true" class="present" style="top: 15.5px; display: block;"><h3 id="production-notes">Production Notes</h3>
+						<p><br></p>
+						<ul>
+						<li>open source program, can be installed on your own server/localhost</li>
+						<li><a href="https://facebook.github.io/react/">React.js</a> for building the interface</li>
+						<li>preview graph in the right column is generated live, we used <a href="http://sigmajs.org/">Sigma.js</a> for this</li>
+						<li>CSV format is created live, based on the content entered (or copied-and-pasted) by the user in the left row</li>
+						<li>this 4-column CSV can be saved and imported directly into Gephi or other network visualisation software</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Couple of words about novels</h1>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Dynamic Networks</h1>
+					</section>
+					<section>
+						<h3>A linguistic Dynamic network from Ondrej Tichy</h3>
+						<h2><a href="https://drive.google.com/open?id=1OEjQblHo-iZAFEXA37SjrxyviPgIHBKL">HERE</a> </h2>
+						(or just go to the Data folder and find dynamic_cunning_collocations.gexf)
+					</section>
+					<section>
+						<h3>Video instruction on making Dynamic Graph in Gephi</h3>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/ogmGcLMj7t4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<p><a href="https://youtu.be/ogmGcLMj7t4">youtu.be/ogmGcLMj7t4</a></p>
+					</section>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			
+		</script>
+	</body>
+</html>
